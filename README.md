@@ -53,7 +53,6 @@ Update app.py (if serving logic changes)
 
 This ensures clean dependency flow and avoids runtime errors.
 
-🗂️ Project Structure (High-Level)
 ├── config/
 │   ├── config.yaml
 │   ├── schema.yaml
@@ -71,12 +70,6 @@ This ensures clean dependency flow and avoids runtime errors.
 │   ├── data_validation/
 │   ├── data_transformation/
 │   ├── model_trainer/
-│
-├── main.py
-├── app.py
-├── params.yaml
-├── requirements.txt
-├── setup.py
 
 ⚙️ Configuration-Driven Design
 
