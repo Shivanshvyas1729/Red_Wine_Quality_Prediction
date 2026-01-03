@@ -84,14 +84,13 @@ RMSE
 R² Score
 
 Predictions are optionally clipped to valid quality range (3–8).
-
 🛠️ How to Run Locally
 1️⃣ Clone the Repository
-git clone https://github.com/your-username/End-to-End-Wine-Quality-Prediction.git
-cd End-to-End-Wine-Quality-Prediction
+git clone https://github.com/Shivanshvyas1729/Red_Wine_Quality_Prediction.git
+cd Red_Wine_Quality_Prediction
 
-2️⃣ Create Environment
-conda create -n wine_ml python=3.9 -y
+2️⃣ Create & Activate Conda Environment
+conda create -n wine_ml python=3.10 -y
 conda activate wine_ml
 
 3️⃣ Install Dependencies
