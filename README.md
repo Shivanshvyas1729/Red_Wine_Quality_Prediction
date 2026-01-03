@@ -53,23 +53,7 @@ Update app.py (if serving logic changes)
 
 This ensures clean dependency flow and avoids runtime errors.
 
-├── config/
-│   ├── config.yaml
-│   ├── schema.yaml
-│
-├── src/Red_Wine_Prediction/
-│   ├── components/
-│   ├── config/
-│   ├── constants/
-│   ├── entity/
-│   ├── pipeline/
-│   ├── utils/
-│
-├── artifacts/
-│   ├── data_ingestion/
-│   ├── data_validation/
-│   ├── data_transformation/
-│   ├── model_trainer/
+
 
 ⚙️ Configuration-Driven Design
 
