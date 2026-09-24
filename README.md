@@ -1,122 +1,144 @@
-🍷 End-to-End Wine Quality Prediction (MLOps)
+# 🍷 Red Wine Quality Prediction — End-to-End MLOps
 
-This project implements a production-style end-to-end machine learning pipeline for predicting red wine quality using physicochemical properties.
-It follows industry-standard MLOps practices, including modular pipelines, configuration-driven development, logging, and CI/CD-ready structure.
+An end-to-end machine learning project for predicting **red wine quality scores** from physicochemical properties.
 
-🚀 Project Overview
+The project is designed as a **production-oriented MLOps pipeline**, with modular components, configuration-driven development, structured logging, model evaluation, and deployment-ready architecture.
 
-The pipeline covers the complete ML lifecycle:
+---
 
+## 🚀 Overview
+
+This project demonstrates how to build and organize a complete machine learning system beyond simply training a model.
+
+### ML Pipeline
+
+```text
+Raw Dataset
+     │
+     ▼
 Data Ingestion
-
+     │
+     ▼
 Data Validation
-
+     │
+     ▼
 Data Transformation
-
+     │
+     ▼
 Model Training
-
+     │
+     ▼
 Model Evaluation
+     │
+     ▼
+Model Artifact
+     │
+     ▼
+API / Deployment
+```
 
-Model Serving (API-ready)
+The pipeline is designed to be **reproducible, modular, configurable, and extensible**.
 
-CI/CD & Cloud Deployment Ready
+---
 
-The goal is to build a reproducible, scalable, and maintainable ML system, not just a model.
+## 🧠 Problem Statement
 
-🧠 Problem Statement
+The objective is to predict the **quality score of red wine** using physicochemical characteristics of the wine.
 
-Predict the quality score (3–8) of red wine samples based on physicochemical features such as acidity, alcohol, sulphates, etc.
+The target variable represents wine quality, with observed values in the **3–8 range**.
 
-This is treated as a regression problem.
+This problem is formulated as a **regression task**.
 
-📂 Project Workflow (How to Extend / Modify)
+### Example Features
 
-Whenever you add a new pipeline stage or change logic, follow this order:
+* Fixed acidity
+* Volatile acidity
+* Citric acid
+* Residual sugar
+* Chlorides
+* Free sulfur dioxide
+* Total sulfur dioxide
+* Density
+* pH
+* Sulphates
+* Alcohol
 
-Update config.yaml
+---
 
-Update schema.yaml
+## 🏗️ Project Architecture
 
-Update params.yaml
+The project follows a modular ML pipeline architecture.
 
-Update entity (dataclass) definitions
+```text
+                 ┌──────────────────┐
+                 │   Raw Dataset    │
+                 └────────┬─────────┘
+                          │
+                          ▼
+                 ┌──────────────────┐
+                 │ Data Ingestion   │
+                 └────────┬─────────┘
+                          │
+                          ▼
+                 ┌──────────────────┐
+                 │ Data Validation  │
+                 └────────┬─────────┘
+                          │
+                          ▼
+                 ┌──────────────────┐
+                 │ Data             │
+                 │ Transformation   │
+                 └────────┬─────────┘
+                          │
+                          ▼
+                 ┌──────────────────┐
+                 │ Model Training   │
+                 └────────┬─────────┘
+                          │
+                          ▼
+                 ┌──────────────────┐
+                 │ Model Evaluation │
+                 └────────┬─────────┘
+                          │
+                          ▼
+                 ┌──────────────────┐
+                 │ Trained Model    │
+                 └────────┬─────────┘
+                          │
+                          ▼
+                 ┌──────────────────┐
+                 │ API / Deployment │
+                 └──────────────────┘
+```
 
-Update ConfigurationManager
+---
 
-Update components
+## 📂 Project Structure
 
-Update pipeline stages
-
-Update main.py
-
-Update app.py (if serving logic changes)
-
-This ensures clean dependency flow and avoids runtime errors.
-
-
-
-⚙️ Configuration-Driven Design
-
-config.yaml → Paths & pipeline settings
-
-schema.yaml → Data validation rules
-
-params.yaml → Model hyperparameters
-
-No hardcoded values inside pipeline logic.
-
-🧪 Model Used
-
-ElasticNet Regression
-
-Handles multicollinearity
-
-Controlled via alpha and l1_ratio from params.yaml
-
-📊 Evaluation
-
-Evaluation metrics include:
-
-MAE
-
-RMSE
-
-R² Score
-
-Predictions are optionally clipped to valid quality range (3–8).
-🛠️ How to Run Locally
-1️⃣ Clone the Repository
-git clone https://github.com/Shivanshvyas1729/Red_Wine_Quality_Prediction.git
-cd Red_Wine_Quality_Prediction
-
-2️⃣ Create & Activate Conda Environment
-conda create -n wine_ml python=3.10 -y
-conda activate wine_ml
-
-3️⃣ Install Dependencies
-pip install -r requirements.txt
-
-4️⃣ Run Pipeline
-python main.py
-
-☁️ Deployment Ready (AWS CI/CD)
-
-The project is structured to support:
-
-Docker
-
-AWS ECR
-
-EC2
-
-GitHub Actions (CI/CD)
-
-Deployment flow:
-
-Build Docker image
-
-Push to AWS ECR
-
-Pull image on EC2
-
-Run container
+```text
+Red_Wine_Quality_Prediction/
+│
+├── .github/
+│   └── workflows/
+│       └── main.yml
+│
+├── artifacts/
+│   ├── data_ingestion/
+│   ├── data_validation/
+│   ├── data_transformation/
+│   └── model_trainer/
+│
+├── config/
+│   └── config.yaml
+│
+├── research/
+│   └── experiments.ipynb
+│
+├── src/
+│   └── mlProject/
+│       ├── components/
+│       │   ├── data_ingestion.py
+│       │   ├── data_validation.py
+│       │   ├── data_transformation.py
+│       │   ├── mo
+```
